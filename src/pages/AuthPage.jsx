@@ -4,6 +4,7 @@ import { Button, Col, Container, Image, Row } from 'react-bootstrap';
 import AuthModal from '../components/AuthModal';
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function AuthPage() {
     const img = "src/assets/magnifyingGlass.png"
@@ -23,6 +24,7 @@ export default function AuthPage() {
     const handleCloseModal = () => setShowAuthModal(false)
 
     const handleSignUp = () => {
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed up 

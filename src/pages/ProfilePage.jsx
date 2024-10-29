@@ -1,9 +1,21 @@
+import { useContext } from 'react'
 import { Button, Col, Container, Image, Row } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
+import { userContext } from '../contexts/UserContextProvider'
+import axios from 'axios'
 
 export default function ProfilePage() {
 
     const navigate = useNavigate()
+
+    const [currentUser] = useContext(userContext)
+    const uid = currentUser.uid 
+
+    const fetchProfile = async() => {
+        try {
+            await axios.get()
+        }
+    } 
 
   return (
     
