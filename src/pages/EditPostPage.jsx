@@ -10,6 +10,7 @@ export default function EditPostPage({ isEditing }) {
     const [inputValue, setInputValue] = useState('');
     const [date, setDate] = useState("")
     const [time, setTime] = useState("")
+    const [title, setTitle] = useState("")
 
     const handleSubmit = (e) => {
         isEditing = false
@@ -30,7 +31,8 @@ export default function EditPostPage({ isEditing }) {
           firebaseuid: uid,
           address: inputValue,
           date: date,
-          time: time
+          time: time,
+          title: title
         })
   
       } catch (err) {
@@ -58,6 +60,15 @@ export default function EditPostPage({ isEditing }) {
             value={time}
             onChange={(e) => {setTime(e.target.value)}}
             type="time"
+          />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="time">
+          <Form.Label>Title</Form.Label>
+          <Form.Control
+            required
+            value={title}
+            onChange={(e) => {setTitle(e.target.value)}}
+            type="text"
           />
         </Form.Group>
         <MapAutocomplete inputValue = {inputValue} setInputValue={setInputValue} />

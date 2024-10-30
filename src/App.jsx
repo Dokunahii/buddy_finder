@@ -16,6 +16,7 @@ function Layout() {
         <Nav>
           <Nav.Link href='/home/profile'>Profile</Nav.Link>
           <Nav.Link href='/home/editPost'>Post</Nav.Link>
+          <Nav.Link href='/'>Sign Out</Nav.Link>
         </Nav>
       </Navbar>
       <Outlet/>

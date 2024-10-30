@@ -3,6 +3,7 @@ import { Button, Container, Form } from 'react-bootstrap'
 import EditImageModal from '../components/EditImageModal'
 import axios from 'axios'
 import UserContextProvider, { userContext } from '../contexts/UserContextProvider'
+import MapAutocomplete from '../features/MapAutocomplete'
 
 export default function EditProfilePage({isEditing}) {
 
@@ -18,8 +19,8 @@ export default function EditProfilePage({isEditing}) {
   const handleOpenEditImageModal = () => setShowEditImageModal(true)
   const handleCloseEditImageModal = () => setShowEditImageModal(false)
 
+  const [inputValue, setInputValue] = useState('');
   const [userName, setUserName] = useState("")
-  const [userAddress, setuserAddress] = useState("")
   const [gender, setGender] = useState("male")
   const [age, setAge] = useState(1)
 
@@ -41,7 +42,7 @@ export default function EditProfilePage({isEditing}) {
       await axios.post("http://localhost:3000/signUp", {
         firebaseuid: uid,
         name: userName,
-        useraddress: userAddress,
+        useraddress: inputValue,
         age: parseInt(age),
         gender: gender,
       })
@@ -63,16 +64,7 @@ export default function EditProfilePage({isEditing}) {
             onChange={(e) => {setUserName(e.target.value)}}
           />
         </Form.Group>
-        <Form.Group className='mb-3' controlId='userAddress'>
-          <Form.Label>User Address(optional)</Form.Label>
-          <Form.Control
-            type='text'
-            as="textarea"
-            rows={3}
-            value={userAddress}
-            onChange={(e) => {setuserAddress(e.target.value)}}
-          />
-        </Form.Group>
+        <MapAutocomplete inputValue = {inputValue} setInputValue={setInputValue} />
         <Form.Group className='mb-3' controlId='userAddress'>
           <Form.Label>Gender</Form.Label>
           <Form.Select
