@@ -27,7 +27,7 @@ export default function EditPostPage({ isEditing }) {
   
     const handleCreate = async() => {
       try {
-        await axios.post("http://localhost:3000/meeting", {
+        await axios.post("https://buddy-finder-api.vercel.app/meeting", {
           firebaseuid: uid,
           address: inputValue,
           date: date,

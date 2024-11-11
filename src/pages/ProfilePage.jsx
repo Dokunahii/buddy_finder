@@ -16,7 +16,7 @@ export default function ProfilePage() {
     const fetchProfile = async() => {
         try {
             console.log(uid)
-            const response = await axios.get(`http://localhost:3000/profile/${uid}`)
+            const response = await axios.get(`https://buddy-finder-api.vercel.app/profile/${uid}`)
             console.log(response.data)
             setProfile(response.data)
         } catch (err) {

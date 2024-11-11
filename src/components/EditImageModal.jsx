@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Button, Image, Modal } from 'react-bootstrap'
 import Cropper from 'react-easy-crop'
 import getCroppedImg from '../features/CroppedImage'
+import imageUrl from "../assets/wha-huh.png"
 
 export default function EditImageModal({showEditImageModal ,handleCloseEditImageModal}) {
 
@@ -22,7 +23,6 @@ export default function EditImageModal({showEditImageModal ,handleCloseEditImage
         4 / 3
     ]
 
-    const imageUrl = "src/assets/wha-huh.png"
     const [zoom, setZoom] = useState(1)
     const [crop, setCrop] = useState({ x: 0, y: 0 })
     const [aspect, setAspect] = useState(aspects[0])
@@ -54,7 +54,7 @@ export default function EditImageModal({showEditImageModal ,handleCloseEditImage
             <Modal.Body>
                 <div style={{ position: 'relative', height: '400px', width: '100%' }}>
                     <Cropper 
-                        image="src/assets/wha-huh.png" 
+                        image={imageUrl} 
                         zoom={zoom} 
                         crop={crop} 
                         aspect={aspect}

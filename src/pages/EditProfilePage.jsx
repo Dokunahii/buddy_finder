@@ -39,7 +39,7 @@ export default function EditProfilePage({isEditing}) {
 
   const handleCreate = async() => {
     try {
-      await axios.post("http://localhost:3000/signUp", {
+      await axios.post("https://buddy-finder-api.vercel.app/signUp", {
         firebaseuid: uid,
         name: userName,
         useraddress: inputValue,

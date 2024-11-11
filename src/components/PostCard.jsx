@@ -1,7 +1,7 @@
 import React from 'react'
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 
-export default function PostCard( {meeting} ) {
+export default function PostCard( {meeting, join} ) {
   return (
     <Card className='d-flex justify-content-between flex-row p-3' border='info'>
         <Card.Img 
@@ -20,8 +20,9 @@ export default function PostCard( {meeting} ) {
             <Card.Text>{meeting.address}</Card.Text>
         </Card.Body>
         <Card.Body variant="secondary">
-            <Card.Title>Joining</Card.Title>
-            <Card.Text>{meeting.name}</Card.Text>
+          <Card.Title>Joining</Card.Title>
+          <Card.Text>{meeting.name.join(", ")}</Card.Text>
+          <Button onClick={() => join(meeting.id)} >Join</Button>
         </Card.Body>
     </Card>
   )
